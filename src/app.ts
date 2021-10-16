@@ -37,19 +37,20 @@ export class MainTest {
                 lastSent: moment().toISOString()
             }
             var self = this;
+            var name = channel.substring(1);
             setInterval(async () => {
-                const u = await this.apiClient.users.getUserByName(user);
-                console.log(`Checking if ${user} is online`);
+                const u = await this.apiClient.users.getUserByName(name);
+                console.log(`Checking if ${name} is online`);
                 if(await u.getStream() !== null) {
                     if(moment().isAfter(moment(options.lastSent))) {
                         console.log(`Sending noob to ${user}`);
-                        this.chatClient?.say(channel, 'Noooob!!!');
+                        this.chatClient?.say(name, 'Noooob!!!');
                         options.lastSent = moment().add(1, 'hour').toISOString();
                     } else {
-                        console.log(`Already sent noob to ${user} in the last hour`);
+                        console.log(`Already sent noob to ${name} in the last hour`);
                     }
                 } else {
-                    console.log(`${channel} is not online!`);
+                    console.log(`${name} is not online!`);
                 }
             }, 1000 * 60);
         })
