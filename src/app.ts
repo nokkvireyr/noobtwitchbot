@@ -48,6 +48,8 @@ export class MainTest {
                     } else {
                         console.log(`Already sent noob to ${user} in the last hour`);
                     }
+                } else {
+                    console.log(`${channel} is not online!`);
                 }
             }, 1000 * 60);
         })
