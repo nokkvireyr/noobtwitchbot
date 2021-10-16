@@ -13,7 +13,7 @@ export class MainTest {
     authProvider:any = null;
     apiClient:any = null;
     chatClient:ChatClient|null = null;
-    channels = ['feigurice, noobbotmaster, eythoreli'];
+    channels = ['feigurice', 'noobbotmaster', 'eythoreli'];
 
     constructor() {
 
